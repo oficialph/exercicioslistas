@@ -1,0 +1,209 @@
+1- 
+cores = ["vermelho", "verde", "azul", "amarelo"]
+
+print(cores[1])   # Segundo elemento (índice 1)
+print(cores[-1])  # Último elemento (índice -1)
+
+2- 
+animais = ['cachorro', 'gato', 'papagaio', 'tartaruga']
+
+print(animais[0])   # Primeiro elemento
+print(animais[-1])  # Último elemento
+
+animais[1] = 'coelho'
+
+print(animais)
+
+3-
+temperaturas = [30, 22, 25, 28, 31, 27, 29]
+
+temperaturas = [temp + 5 if temp < 25 else temp for temp in temperaturas]
+
+print(temperaturas)
+
+4-
+idades = []
+idade = int(input("Digite a idade (ou 0 para encerrar): "))
+
+while idade != 0:
+    idades.append(idade)
+    idade = int(input("Digite a idade (ou 0 para encerrar): "))
+
+if len(idades) > 0:
+    media = sum(idades) / len(idades)  # Calcula a média das idades
+    print(f"A média das idades é: {media:.2f}")
+else:
+    print("Nenhuma idade foi inserida.")
+
+5-
+numeros = []
+
+for _ in range(10):
+    numero = int(input("Digite um número: "))
+    numeros.append(numero)
+
+maior = max(numeros)
+menor = min(numeros)
+
+print(f"O maior número é: {maior}")
+print(f"O menor número é: {menor}")
+
+6-
+lista1 = []
+lista2 = []
+
+for _ in range(5):
+    numero = int(input("Digite um número para a primeira lista: "))
+    lista1.append(numero)
+
+for _ in range(5):
+    numero = int(input("Digite um número para a segunda lista: "))
+    lista2.append(numero)
+
+lista_combinada = lista1 + lista2
+
+print(f"A lista combinada é: {lista_combinada}")
+
+7-
+lista1 = []
+lista2 = []
+
+for _ in range(5):
+    numero = int(input("Digite um número para a primeira lista: "))
+    lista1.append(numero)
+
+for _ in range(5):
+    numero = int(input("Digite um número para a segunda lista: "))
+    lista2.append(numero)
+
+lista_comum = list(set(lista1) & set(lista2))
+
+print(f"Os elementos comuns entre as duas listas são: {lista_comum}")
+
+8-
+numeros = []
+pares = []
+impares = []
+
+for _ in range(10):
+    numero = int(input("Digite um número: "))
+    numeros.append(numero)
+
+for numero in numeros:
+    if numero % 2 == 0:
+        pares.append(numero)
+    else:
+        impares.append(numero)
+
+print(f"Números pares: {pares}")
+print(f"Números ímpares: {impares}")
+
+FUNÇÕES
+1-
+def maior_numero(numeros):
+    return max(numeros)
+
+lista1 = [3, 5, 2, 8, 1]
+lista2 = [-1, -5, -3, -7, -2]
+lista3 = [10, 20, 30, 25, 15]
+
+print(f"O maior número da lista1 é: {maior_numero(lista1)}")
+print(f"O maior número da lista2 é: {maior_numero(lista2)}")
+print(f"O maior número da lista3 é: {maior_numero(lista3)}")
+
+2-
+def media(numeros):
+    if len(numeros) == 0:
+        return 0  # Retorna 0 para lista vazia
+    return sum(numeros) / len(numeros)
+
+lista1 = [10, 20, 30, 40]
+lista2 = [5, 15, 25]
+lista3 = []
+
+print(f"A média da lista1 é: {media(lista1)}")
+print(f"A média da lista2 é: {media(lista2)}")
+print(f"A média da lista3 é: {media(lista3)}")
+
+3-
+def contar_elementos(lista, elemento):
+    return lista.count(elemento)
+
+lista1 = [1, 2, 3, 2, 4, 2, 5]
+lista2 = ['a', 'b', 'c', 'a', 'd', 'a']
+lista3 = [True, False, True, True, False]
+
+print(f"O elemento 2 aparece {contar_elementos(lista1, 2)} vezes na lista1.")
+print(f"O elemento 'a' aparece {contar_elementos(lista2, 'a')} vezes na lista2.")
+print(f"O elemento True aparece {contar_elementos(lista3, True)} vezes na lista3.")
+
+4-
+def numeros_pares(lista):
+    return [numero for numero in lista if numero % 2 == 0]
+
+lista1 = [1, 2, 3, 4, 5, 6]
+lista2 = [10, 15, 20, 25, 30]
+lista3 = [7, 9, 11, 13, 15]
+
+print(f"Números pares na lista1: {numeros_pares(lista1)}")
+print(f"Números pares na lista2: {numeros_pares(lista2)}")
+print(f"Números pares na lista3: {numeros_pares(lista3)}")
+
+5-
+def fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    
+    fib = [0, 1]
+    for i in range(2, n):
+        fib.append(fib[i - 1] + fib[i - 2])
+    
+    return fib
+
+print(fibonacci(0))  # []
+print(fibonacci(1))  # [0]
+print(fibonacci(2))  # [0, 1]
+print(fibonacci(5))  # [0, 1, 1, 2, 3]
+print(fibonacci(10)) # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+TUPLAS
+1-
+meses = ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
+         "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro")
+
+mes_aniversario = meses[2]
+print(f"Meu aniversário é em {mes_aniversario}.")
+
+pontos = (100, 200, 300)
+
+# A seguinte linha irá gerar um erro, pois tuplas são imutáveis
+# pontos[0] = 150  # Descomente para ver o erro
+
+2-
+contato = {"nome": "Pedro", "telefone": "1234-5678"}
+
+contato["telefone"] = "9876-5432"
+
+contato["email"] = "pedro@example.com"
+
+print(contato)
+
+MATRIZES
+1-
+tabuleiro = [[" " for _ in range(3)] for _ in range(3)]
+
+tabuleiro[1][1] = "X"
+
+for linha in tabuleiro:
+    print(" | ".join(linha))
+
+2-
+numeros = [[2, 4], [6, 8]]
+
+soma = sum(sum(linha) for linha in numeros)
+
+print(f"A soma de todos os elementos da matriz é: {soma}")
